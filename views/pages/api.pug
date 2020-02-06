@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  h1.text-center.my-5 #{title}
+
+  div.row.my-5
+    div.col-sm
+      a.nav-link(href='/ads/api/search', target='_blank') /ads/api/search <br> GET
+    div.col-sm Display list of ads in database
+    div.col-sm <b>param</b> <br> - limit <br> - page
+
+  div.row.my-5
+    div.col-sm /ads/api/add <br> POST
+    div.col-sm Add ad to database with seleted image
+    div.col-sm <b>param</b> <br> - title <br> - description <br> - typeId <br> - userId <br> - days <br> - address <br> - phone <br> - price 
+      |<br> <b>files</b><br> - media 
+
+  div.row.my-5
+    div.col-sm /ads/delete <br> POST
+    div.col-sm Ad is not removed from database. Flag deleted is set to 1. Flag is_active is set to 0.
+    div.col-sm <b>param</b> <br> - id <br> - userId
+
+  div.row.my-5
+    div.col-sm /ads/deletepermanently <br> POST
+    div.col-sm Delete ad from database
+    div.col-sm <b>param</b> <br> - id <br> - userId
+
+  div.row.my-5
+    div.col-sm /ads/deleteimage <br> POST
+    div.col-sm Removes main image from ad
+    div.col-sm <b>param</b> <br> - id <br> - userId

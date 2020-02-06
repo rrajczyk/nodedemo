@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  h1.text-center.my-5 #{title}
+
+  div.row.my-5
+    div.col-sm
+      a.nav-link(href='/ads/search') /ads/search
+    div.col-sm Search for ads with paginator
+
+  div.row.my-5
+    div.col-sm
+      a.nav-link(href='/ads/add') /ads/add
+    div.col-sm Show form to add ad. User can include image to ad.
+
+  div.row.my-5
+    div.col-sm
+      a.nav-link(href='/contact/form') /contact/form
+    div.col-sm Simple contact form with email sender

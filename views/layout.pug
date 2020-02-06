@@ -1,0 +1,23 @@
+//- layout.pug
+doctype html
+html
+  head
+    title devmode - nodejs - #{title}
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Oswald&display=swap')
+    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js')
+  body
+    include layout/top
+    div.container
+      - var messages = getMessages()
+      if messages.notify
+        div.alert.alert-success.mt-5 #{messages.notify}
+      if messages.error
+        div.alert.alert-danger.mt-5 #{messages.error}
+      block content
+      block foot
+    div.border-top.mt-5
+      div.container.py-3.text-center
+        a(href='http://devmode.pl', target='_blank') devmode.pl code with passion
+    script(src='/js/main.js')

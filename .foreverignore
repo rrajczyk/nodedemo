@@ -1,0 +1,6 @@
+/home/node/public/uploads/*
+/home/node/node_modules/*
+/home/node/out.log
+/home/node/err.log
+/home/node/my_app_err.log
+/home/node/my_app_log.log

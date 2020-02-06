@@ -1,0 +1,53 @@
+extends ../layout
+
+block content
+  h1.text-center.my-5 #{title}
+
+  div.row.my-5
+    div.col-sm /notifications/firebasetyping <br> POST
+    div.col-sm Simple notification to propagate information, that someone in conversation started writing a message
+    div.col-sm <b>param</b> <br> - conversationId <br> - userId <br> - deviceId <br> - typing [0 , 1]
+
+  div.row.my-5
+    div.col-sm /notifications/firebasemessage <br> POST
+    div.col-sm Notification sent to certain group of users that are in conversation
+    div.col-sm <b>param</b> <br> - conversationId <br> - userId <br> - deviceId <br> - message
+
+  div.border.p-3
+   span server.js<br><br>
+   samp
+     |var firebaseadmin = require("firebase-admin");<br>
+     |var serviceAccount = require("./keys/YOUR_SECRET_JSON_KEY_CONFIG.json");<br><br>
+
+     |firebaseadmin.initializeApp({<br>
+     |&nbsp;credential: firebaseadmin.credential.cert(serviceAccount),<br>
+     |&nbsp;databaseURL: "https://yourlink.firebaseio.com"<br>
+     |});<br>
+
+  div.border.p-3.mt-5
+   span controllers/notifications.js<br><br>
+   samp
+     |var firebaseadmin = require("firebase-admin");<br>
+     |.<br>
+     |.<br>
+     |.<br>
+     |var payload = {<br>
+     |&nbsp;data: {<br>
+     |&nbsp;&nbsp;message: 'secret message'<br>
+     |&nbsp;}<br>
+     |};<br><br>
+
+     |var topic = 'all_subscribers';<br><br>
+
+     |const options = {<br>
+     |&nbsp;content_available: true,<br>
+     |&nbsp;mutable_content: true<br>
+     |};<br><br>
+
+     |firebaseadmin.messaging().sendToTopic(topic, payload, options)<br>
+     |.then(function(response) {<br>
+     |&nbsp;res.json({ "code" : 200, "message" : "Sent" });<br>
+     |})<br>
+     |.catch(function(error) {<br>
+     |&nbsp;res.json({"code" : 500, "message" : "Error"});<br>
+     |});<br>

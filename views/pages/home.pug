@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  h1.text-center.my-5 #{title}
+
+  div.card-deck
+    div.card
+      a(href='/pages/api')
+        img.card-img-top(src='/images/api_page.png', alt='devmode', width='200')
+      div.card-body
+        h5.card-title Api Calls
+        p.card-text
+          a(href='/ads/api/search') [GET] Ads Serach <br>
+          a(href='/pages/api') [POST] Add Ad <br>
+          a(href='/pages/api') [POST] Delete Ad <br>
+          a(href='/pages/api') [POST] Delete Ad Permanently<br>
+        p.card-text
+          small JSON reponse for API calls
+    div.card
+      a(href='/ads/search')
+        img.card-img-top(src='/images/ads_page.png', alt='devmode', width='200')
+      div.card-body
+        h5.card-title Website Links
+        p.card-text
+          a(href='/ads/search') Ads Serach <br>
+          a(href='/ads/add') Add Ad <br>
+          a(href='/contact/form') Contact Form <br>
+        p.card-text
+          small Website presentation
+    div.card
+      a(href='/pages/firebase')
+        img.card-img-top(src='/images/firebase_page.png', alt='devmode', width='200')
+      div.card-body
+        h5.card-title Firebase Notifications
+        p.card-text
+          a(href='/pages/firebase') Instruction <br>
+        p.card-text
+          small Instructions for Firebase Notifications from nodejs

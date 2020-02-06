@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+  h1.text-center.my-5 #{title}
+
+  div.my-3.row
+    div.col-sm
+      a(href='/ads/add')
+        span.btn.btn-success Ad Add
+    div.col-sm.text-right
+      span.btn.btn-primary(type="submit") #{itemCount} Active Ads
+
+  include ../paginate
+
+  each ad in ads
+    div.row.my-5
+      div.col-3
+        if ad.file_name
+          img.w-100(src='/uploads/' + ad.file_name)
+        else
+          img.w-100(src='/images/logo.png')
+      div.col-8
+        h4 #{ad.title}
+        div.row
+          div.col-sm 
+            if ad.address
+              div #{ad.address}<br>
+            if ad.phone
+              div #{ad.phone}<br>
+            if ad.price
+              div $#{ad.price}<br>
+          div.col-sm #{ad.description}
+      div.col-1
+        div
+          a.btn.btn-danger(href='/ads/delete?id=' + ad.id ) Delete
+
+  include ../paginate

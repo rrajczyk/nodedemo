@@ -1,0 +1,13 @@
+//- paginate.pug
+
+if paginate.hasPreviousPages || paginate.hasNextPages(pageCount)
+  .navigation.well-sm#pagination
+    ul.pagination.justify-content-center.my-3
+      if pages
+        each page in pages
+          if pageNum == page.number
+            li.page-item.active
+              a.page-link(href=page.url)= page.number
+          else
+            li.page-item
+              a.page-link(href=page.url)= page.number

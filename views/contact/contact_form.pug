@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  h1.text-center.my-5 #{title}
+
+  form(method="POST", action="/contact/sendemail")
+
+    div.my-3.row
+      div.col-sm
+      div.col-sm.text-right
+        button.btn.btn-primary(type="submit") Submit
+
+    div
+      div.row
+        div.col-sm
+          div.form-group
+            label Title
+            input.form-control(type="text", name="title", id="title" required)
+          div.form-group
+            label Email
+            input.form-control(type="text", name="email", id="email" required)
+          div.form-group
+            label Phone
+            input.form-control(type="text", name="phone", id="phone" required)
+        div.col-sm
+          div.form-group
+            label Message
+            textarea.form-control(name="message", id="message" required)
+
+    div.my-3.row
+      div.col-sm
+      div.col-sm.text-right
+        button.btn.btn-primary(type="submit") Submit
